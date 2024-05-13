@@ -2,11 +2,13 @@ import { Component, OnInit, inject } from '@angular/core';
 import{HttpClient}from '@angular/common/http';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit  {
   title = 'ag-grid';
@@ -25,12 +27,11 @@ this.tableData=data
 }
 
 colDefs: ColDef[] = [
-  { field: "id",flex:0, },
-  { field: "name",flex:2  },
-  { field: "username",flex:2 },
-  { field: "email" ,flex:2},
-  { field: "website" ,flex:2},
- 
+  { field: "id",initialFlex:1,  headerComponentParams: { className: 'center-header' },minWidth: 70, maxWidth: 70, suppressSizeToFit: true ,cellStyle: { textAlign: 'center' }},
+  { field: "name", headerComponentParams: { className: 'center-header' },flex:1,filter:true,minWidth: 200, maxWidth: 500, suppressSizeToFit: true ,cellStyle: { textAlign: 'center' } },
+  { field: "username", headerComponentParams: { className: 'center-header' },flex:1,filter:true ,minWidth: 200, maxWidth: 500, suppressSizeToFit: true,cellStyle: { textAlign: 'center' }},
+  { field: "email" , headerComponentParams: { className: 'center-header' },flex:1,filter:true,minWidth: 250, maxWidth: 550, suppressSizeToFit: true,cellStyle: { textAlign: 'center' }},
+  { field: "website" , headerComponentParams: { className: 'center-header' },flex:1,filter:true,minWidth: 200, maxWidth: 500, suppressSizeToFit: true,cellStyle: { textAlign: 'center' }}
 ];
 
 

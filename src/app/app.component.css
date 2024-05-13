@@ -1,0 +1,16 @@
+.grid-container {
+    display: flex;
+    flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ 
+}
+
+.ag-theme-quartz {
+    flex-grow:1 ;
+  
+}
+
+.center-header {
+    justify-content: center;
+  }

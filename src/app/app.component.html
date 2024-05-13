@@ -1,7 +1,19 @@
 
-
-<ag-grid-angular class="ag-theme-quartz" style="height: 500px;"
+<!-- <div class="grid-table">
+    <div>
+<ag-grid-angular class="ag-theme-quartz" style="width: 700px; height: 400px"
 
 [rowData]="tableData"
 [columnDefs]="colDefs">
 </ag-grid-angular>
+</div>
+</div> -->
+
+<div class="grid-container">
+    <ag-grid-angular class="ag-theme-quartz" 
+                     style="width: 60%; height: 100vh;margin-top: 5%;"
+                     [rowData]="tableData"
+                     [columnDefs]="colDefs"
+                     [domLayout]="'autoHeight'">
+    </ag-grid-angular>
+</div>x`
