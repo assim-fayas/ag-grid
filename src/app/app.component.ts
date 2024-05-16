@@ -1,14 +1,15 @@
 import { Component, OnInit, inject } from '@angular/core';
 import{HttpClient}from '@angular/common/http';
-import { AgGridAngular } from 'ag-grid-angular';
+
 import { ColDef } from 'ag-grid-community';
-import { ViewEncapsulation } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  encapsulation: ViewEncapsulation.None
+ 
 })
 export class AppComponent implements OnInit  {
   title = 'ag-grid';
@@ -27,12 +28,17 @@ this.tableData=data
 }
 
 colDefs: ColDef[] = [
-  { field: "id",initialFlex:1,  headerComponentParams: { className: 'center-header' },minWidth: 70, maxWidth: 70, suppressSizeToFit: true ,cellStyle: { textAlign: 'center' }},
-  { field: "name", headerComponentParams: { className: 'center-header' },flex:1,filter:true,minWidth: 200, maxWidth: 500, suppressSizeToFit: true ,cellStyle: { textAlign: 'center' } },
-  { field: "username", headerComponentParams: { className: 'center-header' },flex:1,filter:true ,minWidth: 200, maxWidth: 500, suppressSizeToFit: true,cellStyle: { textAlign: 'center' }},
-  { field: "email" , headerComponentParams: { className: 'center-header' },flex:1,filter:true,minWidth: 250, maxWidth: 550, suppressSizeToFit: true,cellStyle: { textAlign: 'center' }},
-  { field: "website" , headerComponentParams: { className: 'center-header' },flex:1,filter:true,minWidth: 200, maxWidth: 500, suppressSizeToFit: true,cellStyle: { textAlign: 'center' }}
+  { field: "id",flex:1,minWidth: 70, maxWidth: 70, cellStyle: { textAlign: 'center',fontWeight:'bold' }, checkboxSelection: true},
+  { field: "name",flex:1,filter:true,minWidth: 200, maxWidth: 500,cellStyle: { textAlign: 'center' },editable: true , cellEditorPopup: true,
+  cellEditor: 'agSelectCellEditor', cellEditorParams: {values: ['Tesla', 'Ford', 'Toyota'],},},
+  { field: "username",flex:1,filter:true ,minWidth: 200, maxWidth: 500,cellStyle: { textAlign: 'center' }, editable: true   },
+  { field: "email" ,flex:1,filter:true,minWidth: 250, maxWidth: 550,cellStyle: { textAlign: 'center' }, editable: true  },
+  { field: "website" ,flex:1,filter:true,minWidth: 200, maxWidth: 500,cellStyle: { textAlign: 'center' }, editable: true  }
 ];
 
-
+public defaultColDef: ColDef = {
+  editable: true,
+  flex: 1,
+  minWidth: 100,
+};
 }
